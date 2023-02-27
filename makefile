@@ -14,7 +14,7 @@ css/%.css: scss/%.scss
 sass: $(css)
 
 watch:
-	echo $(files) | tr ' ' '\n' | entr make
+	echo $(files) | tr ' ' '\n' | entr make clean all
 
 clean:
 	rm $(css)

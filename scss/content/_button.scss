@@ -1,4 +1,5 @@
 a[role="button"], button {
+  text-decoration: none;
   padding: 0;
   margin: 0;
   border: none;
@@ -7,22 +8,18 @@ a[role="button"], button {
   &:before {
     color: var(--color);
     content: "[";
-    float: left;
   }
   &:after {
     color: var(--color);
     content: "]";
-    float: right;
   }
 
   &:focus {
     &:before {
       content: "|";
-      float: left;
     }
     &:after {
       content: "|";
-      float: right;
     }
   }
 }

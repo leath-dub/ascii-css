@@ -20,10 +20,9 @@ drawBox = function (rawText, maxChars) {
 
 
 fontSize = function (element) {
-  let ctx = document.createElement('canvas').getContext("2d");
+  const ctx = document.createElement('canvas').getContext("2d");
   ctx.font = window.getComputedStyle(element, null).getPropertyValue('font');
-  console.log(ctx.measureText('a').width);
-  return Math.round(ctx.measureText('a').width);
+  return ctx.measureText('a').width;
 }
 
 fillRight = function (text, totalCharWidth, char) {
@@ -46,10 +45,9 @@ markUpText = function(node, text) {
 codeBlock = function () {
   let pre = document.getElementsByTagName("pre");
   for (let i = 0; i < pre.length; i++) {
-    let raw = pre[i].innerHTML;
-    let fill = pre[i].offsetWidth;
-    let fsz = fontSize(pre[i]);
-    let charWidth = Math.round(fill / fsz);
+    const fill = pre[i].offsetWidth;
+    const fsz = fontSize(pre[i]);
+    const charWidth = fill / fsz;
 
     markUpText(pre[i], charWidth);
   }
@@ -60,13 +58,44 @@ hrBlock = function() {
   for (let i = 0; i < hr.length; i++) {
     let fill = hr[i].offsetWidth;
     let fsz = fontSize(hr[i]);
-    let charWidth = Math.round(fill / fsz);
+    let charWidth = fill / fsz;
 
     hr[i].innerHTML = "_".repeat(charWidth);
   }
 }
 
+convertA = function (a) {
+  const fmt = document.createElement('a');
+  console.log(a.href);
+  fmt.innerHTML = a.href.split('#')[1]; // href="#001" -> 001
+  fmt.role = "button";
+  fmt.href = a.href;
+  return fmt;
+}
+
+linkDots = function () {
+  const sections = document.querySelectorAll("section");
+  sections.forEach(section => {
+    const as = section.querySelectorAll('a');
+    as.forEach(a => {
+      const fill = a.parentNode.offsetWidth;
+      const fsz = fontSize(a);
+      const charWidth = fill / fsz;
+
+      console.log(charWidth - a.innerHTML.length - 3);
+      const append = convertA(a); // new a tag with content based on href
+      const store = a.innerHTML;
+      const parent = a.parentNode;
+
+      a.remove(); // remove old a tag
+      parent.innerHTML += store + " " + ".".repeat(charWidth - store.length - 3 - append.innerHTML.length - 3) + " ";
+      parent.append(append);
+    });
+  });
+}
+
 window.onload = () => {
   codeBlock();
   hrBlock();
+  linkDots();
 }

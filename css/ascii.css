@@ -48,12 +48,12 @@ header > a:after {
   content: "]";
 }
 
-ul {
+ul, ol {
   margin: 0;
   padding: 0;
 }
 
-ul > ul {
+ul > ul, ol > ol {
   padding-left: 2ch;
 }
 
@@ -86,6 +86,7 @@ nav ol li:first-of-type, nav ul li:first-of-type {
 }
 
 a[role=button], button {
+  text-decoration: none;
   padding: 0;
   margin: 0;
   border: none;
@@ -95,20 +96,16 @@ a[role=button], button {
 a[role=button]:before, button:before {
   color: var(--color);
   content: "[";
-  float: left;
 }
 a[role=button]:after, button:after {
   color: var(--color);
   content: "]";
-  float: right;
 }
 a[role=button]:focus:before, button:focus:before {
   content: "|";
-  float: left;
 }
 a[role=button]:focus:after, button:focus:after {
   content: "|";
-  float: right;
 }
 
 .container {
