@@ -7,9 +7,9 @@ look of the website, however it, afaik is done manually and you can't just
 import a stylesheet/js to get the look and feel.
 
 ## Usage
-For now you can close the repository
+For now you can clone the repository
 ```shell
-$ git clone https://github.com/leath-dub/ascii-css
+git clone https://github.com/leath-dub/ascii-css
 ```
 and just link to the css and javascript files
 ```html
