@@ -13,6 +13,6 @@ git clone https://github.com/leath-dub/ascii-css
 ```
 and just link to the css and javascript files
 ```html
-<link href="css/ascii.css" rel="stylesheet">
-<script src="js/ascii.js"></script>
+<link href="ascii-css/css/ascii.css" rel="stylesheet">
+<script src="ascii-css/js/ascii.js"></script>
 ```
