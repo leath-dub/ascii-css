@@ -1,0 +1,22 @@
+nav li {
+  &:before {
+    content: "";
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  ol, ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      margin-left: var(--nav-spacing);
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background-color: #000;
+    --color: #fff;
+    --nav-spacing: 1ch;
+  }
+}
+[data-theme=dark] {
+  --background-color: #000;
+  --color: #fff;
+}
+
+[data-theme=light] {
+  --background-color: #fff;
+  --color: #000;
+}
+
+:root {
+  --link-color: #6CF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+  content: "# ";
+}
+
+header > *:is(h1, h2, h3, h4, h5, h6) {
+  display: inline-block;
+}
+header > *:is(h1, h2, h3, h4, h5, h6):before {
+  content: "";
+}
+
+header > a {
+  text-decoration: none;
+  display: inline-block;
+}
+header > a:before {
+  color: var(--color);
+  content: "[";
+}
+header > a:after {
+  color: var(--color);
+  content: "]";
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul > ul {
+  padding-left: 2ch;
+}
+
+li {
+  list-style: none;
+}
+li:before {
+  content: "* ";
+}
+
+nav li:before {
+  content: "";
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+nav ol, nav ul {
+  display: flex;
+  flex-direction: row;
+}
+nav ol li, nav ul li {
+  margin-left: var(--nav-spacing);
+}
+nav ol li:first-of-type, nav ul li:first-of-type {
+  margin-left: 0;
+}
+
+a[role=button], button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--link-color);
+}
+a[role=button]:before, button:before {
+  color: var(--color);
+  content: "[";
+  float: left;
+}
+a[role=button]:after, button:after {
+  color: var(--color);
+  content: "]";
+  float: right;
+}
+a[role=button]:focus:before, button:focus:before {
+  content: "|";
+  float: left;
+}
+a[role=button]:focus:after, button:focus:after {
+  content: "|";
+  float: right;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15vw 0 15vw;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: monospace;
+  font-size: 1.94vw;
+}
+
+a {
+  color: var(--link-color);
+}
+
+hr {
+  margin: 0;
+  border: none;
+  line-height: 1;
+}
+hr:before {
+  content: "";
+  white-space: nowrap;
+}
+
+code {
+  width: 100%;
+}
+
+/*# sourceMappingURL=ascii.css.map */

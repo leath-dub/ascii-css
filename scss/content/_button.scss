@@ -1,0 +1,28 @@
+a[role="button"], button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--link-color);
+  &:before {
+    color: var(--color);
+    content: "[";
+    float: left;
+  }
+  &:after {
+    color: var(--color);
+    content: "]";
+    float: right;
+  }
+
+  &:focus {
+    &:before {
+      content: "|";
+      float: left;
+    }
+    &:after {
+      content: "|";
+      float: right;
+    }
+  }
+}

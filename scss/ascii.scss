@@ -1,0 +1,55 @@
+@import "themes/light";
+@import "themes/dark";
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark;
+    --nav-spacing: 1ch;
+  }
+}
+
+[data-theme="dark"] {
+  @include dark;
+}
+
+[data-theme="light"] {
+  @include light;
+}
+
+
+@import "root";
+@import "content/typography";
+@import "content/list";
+@import "components/nav";
+@import "content/button";
+@import "layout/container";
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: monospace;
+  font-size: 1.94vw;
+}
+
+
+a {
+  color: var(--link-color);
+}
+
+hr {
+  margin: 0;
+  border: none;
+  line-height: 1;
+  &:before {
+    content: "";
+    white-space: nowrap;
+  }
+}
+
+code {
+  width: 100%;
+}

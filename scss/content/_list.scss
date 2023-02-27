@@ -1,0 +1,15 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul > ul {
+  padding-left: 2ch;
+}
+
+li {
+  list-style: none;
+  &:before {
+    content: "* ";
+  }
+}

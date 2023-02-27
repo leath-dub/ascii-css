@@ -1,0 +1,28 @@
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  &:before {
+    content: "# ";
+  }
+}
+
+header > *:is(h1, h2, h3, h4, h5, h6) {
+  display: inline-block;
+  &:before {
+    content: "";
+  }
+}
+
+header > a {
+  text-decoration: none;
+  display: inline-block;
+  &:before {
+    color: var(--color);
+    content: "[";
+  }
+  &:after {
+    color: var(--color);
+    content: "]";
+  }
+}
